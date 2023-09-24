@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Master Branch Tasks') {
             when {
-                branch 'master'
+                branch '*main*'
             }
             steps {
               sh '''#!/bin/bash -l
