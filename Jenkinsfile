@@ -2,12 +2,27 @@ pipeline {
     agent any
 
     stages {
-        stage('Hello') {
-            steps {
-                echo 'Hello World'
-                //git branch: 'main', credentialsId: 'arifgithub', url: 'https://github.com/arif1414/jenkinstest'
-                sh 'bash ./helloworld.sh'
+        stage('Master Branch Tasks') {
+            when {
+                branch "main"
             }
+            steps {
+              sh '''#!/bin/bash -l
+              echo 'main branch'
+              '''
+            }
+        }
+        stage('Example (Not master)') {
+           when {
+               not {
+                   branch 'main'
+               }
+           }
+           steps {
+              sh '''#!/bin/bash -l
+              echo 'other branch'
+              '''
+           }
         }
     }
 }
