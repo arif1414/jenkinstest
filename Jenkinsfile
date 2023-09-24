@@ -4,7 +4,8 @@ pipeline {
     stages {
         stage('Hello') {
             steps {
-                echo 'Hello World! 123'
+                echo 'Hello World'
+                git branch: 'main', credentialsId: 'arifgithub', url: 'https://github.com/arif1414/jenkinstest'
             }
         }
     }
