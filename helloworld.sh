@@ -1,1 +1,1 @@
-echo "hello world from bash script. #1"
+echo "hello world from bash script. #2"
