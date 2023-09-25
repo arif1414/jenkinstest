@@ -3,10 +3,12 @@ pipeline {
 
     stages {
         stage('env') {
-            sh '''#!/bin/bash -l
-            echo 'he he'
-            env
-            '''
+            steps {
+                sh '''#!/bin/bash -l
+                echo 'he he'
+                env
+                '''
+            }
         }
         stage('Master Branch Tasks') {
             when {
