@@ -14,9 +14,9 @@ pipeline {
             //when {
             //        environment(name: "GIT_BRANCH", value: "origin/main")
             //    }
-            when {
-                branch 'origin/main'
-            }
+              when {
+                expression {env.GIT_BRANCH == 'origin/main'}
+              }
             steps {
               sh '''#!/bin/bash -l
               echo 'main branch'
