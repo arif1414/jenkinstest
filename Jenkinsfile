@@ -6,7 +6,11 @@ pipeline {
             steps {
               withPythonEnv("/usr/bin/python3") {
                 script {
-                  sh "pip install -r requirements.txt"
+                  sh '''#!/bin/bash -l
+                  env
+                  which python3
+                  '''
+                  //sh "pip install -r requirements.txt"
                 }
               }
             }  
