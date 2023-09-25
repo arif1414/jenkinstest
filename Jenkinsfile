@@ -11,6 +11,7 @@ pipeline {
                 echo $GIT_COMMIT
                 git diff-tree -r $GIT_COMMIT --no-commit-id --name-only
                 ls -lrt
+                which python
                 '''
             }
         }
