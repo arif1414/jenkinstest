@@ -2,13 +2,16 @@ pipeline {
     agent any
 
     stages {
-        stage('env') {
+        stage('build environment') {
             steps {
-                sh '''#!/bin/bash -l
-                env
-                pwd
-                ls -lrt
-                '''
+              withPythonEnv("/usr/bin/python3") {
+                script {
+                  sh '''#!/bin/bash -l
+                  pip install -r requirements.txt
+                  ./testpython.py -h
+                  '''
+                }
+              }
             }
         }
         stage('Command Plan') {
