@@ -21,6 +21,7 @@ pipeline {
            steps {
               sh '''#!/bin/bash -l
               echo 'other branch'
+              cat ./Jenkinsfile
               '''
            }
         }
