@@ -7,7 +7,8 @@ pipeline {
                 sh '''#!/bin/bash -l
                 echo 'he he'
                 env
-                echo env.GIT_COMMIT
+                echo "here=========="
+                echo $GIT_COMMIT
                 '''
             }
         }
