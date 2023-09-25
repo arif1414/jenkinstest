@@ -2,6 +2,9 @@ pipeline {
     agent any
 
     stages {
+        stage('env') {
+            sh env
+        }
         stage('Master Branch Tasks') {
             when {
                     environment(name: "deployBranch", value: "main")
