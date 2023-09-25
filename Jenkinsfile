@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('build environment') {
             steps {
-              withPythonEnv("/usr/bin/python3") {
+              //withPythonEnv("/usr/bin/python3") {
               //  script {
                   sh '''#!/bin/bash -l
                   env
@@ -12,7 +12,7 @@ pipeline {
                   '''
                   //sh "pip install -r requirements.txt"
               //  }
-              }
+              //}
             }
         }
         stage('Command Plan') {
