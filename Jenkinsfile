@@ -5,36 +5,30 @@ pipeline {
         stage('env') {
             steps {
                 sh '''#!/bin/bash -l
-                echo 'he he'
                 env
-                echo "=====here=========="
-                echo $GIT_COMMIT
-                git diff-tree -r $GIT_COMMIT --no-commit-id --name-only
+                pwd
                 ls -lrt
                 '''
             }
         }
-        stage('Master Branch Tasks') {
-              when {
-                expression {env.GIT_BRANCH == 'origin/main'}
-              }
+        stage('Command Plan') {
             steps {
               sh '''#!/bin/bash -l
-              echo 'main branch'
-              cat ./Jenkinsfile
+              echo "Git Branch $GIT_BRANCH"
+              ./buildcommands.sh
               '''
             }
         }
-        stage('Example (Not master)') {
-              when {
-                expression {env.GIT_BRANCH != 'origin/main'}
-              }
-           steps {
+        stage('Command execution') {
+            when {
+                expression {env.GIT_BRANCH == 'origin/main'}
+            }
+            steps {
               sh '''#!/bin/bash -l
-              echo 'other branch'
-              cat ./Jenkinsfile
+              echo "Git Branch $GIT_BRANCH"
+              ./executecommands.sh
               '''
-           }
+            }
         }
     }
 }
