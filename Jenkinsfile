@@ -4,23 +4,25 @@ pipeline {
     stages {
         stage('Master Branch Tasks') {
             when {
-                branch '*main*'
-            }
+                    environment(name: "deployBranch", value: "main")
+                }
             steps {
               sh '''#!/bin/bash -l
               echo 'main branch'
+              cat ./Jenkinsfile
               '''
             }
         }
         stage('Example (Not master)') {
            when {
                not {
-                   branch 'master'
+                   branch 'main'
                }
            }
            steps {
               sh '''#!/bin/bash -l
               echo 'other branch'
+              cat ./Jenkinsfile
               '''
            }
         }
