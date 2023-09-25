@@ -3,7 +3,7 @@ pipeline {
 
     stages {
         stage('env') {
-            steps {
+            pyvenv(virtualenv: 'virtualenv -p python3', requirements: 'requirements.txt') {
                 sh '''#!/bin/bash -l
                 echo 'he he'
                 env
