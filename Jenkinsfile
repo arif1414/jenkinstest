@@ -8,7 +8,8 @@ pipeline {
                 script {
                   sh "pip install -r requirements.txt"
                 }
-              }  
+              }
+            }  
         }
         stage('Command Plan') {
             steps {
