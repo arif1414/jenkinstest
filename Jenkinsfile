@@ -7,7 +7,7 @@ pipeline {
                 sh '''#!/bin/bash -l
                 echo 'he he'
                 env
-                echo "here=========="
+                echo "=====here=========="
                 echo $GIT_COMMIT
                 git diff-tree -r $GIT_COMMIT --no-commit-id --name-only
                 '''
