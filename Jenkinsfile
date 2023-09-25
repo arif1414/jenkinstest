@@ -10,6 +10,7 @@ pipeline {
                   env
                   python3 --version
                   pip install -r requirements.txt
+                  ./testpython.py -h
                   '''
                   //sh "pip install -r requirements.txt"
                 }
