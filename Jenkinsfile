@@ -3,7 +3,7 @@ pipeline {
 
     stages {
         stage('env') {
-            sh env
+            sh 'env'
         }
         stage('Master Branch Tasks') {
             when {
