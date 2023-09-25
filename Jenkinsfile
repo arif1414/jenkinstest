@@ -9,6 +9,7 @@ pipeline {
                   sh '''#!/bin/bash -l
                   env
                   python3 --version
+                  pip install -r requirements.txt
                   '''
                   //sh "pip install -r requirements.txt"
                 }
