@@ -25,11 +25,9 @@ pipeline {
             }
         }
         stage('Example (Not master)') {
-           when {
-               not {
-                   branch 'main'
-               }
-           }
+              when {
+                expression {env.GIT_BRANCH != 'origin/main'}
+              }
            steps {
               sh '''#!/bin/bash -l
               echo 'other branch'
