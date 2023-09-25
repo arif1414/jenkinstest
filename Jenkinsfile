@@ -8,10 +8,6 @@ pipeline {
                         environment(name: "deployBranch", value: "main")
                     }
                 }
-                steps {
-
-                        <anything goes here like groovy code or shell commands>
-                }
             steps {
               sh '''#!/bin/bash -l
               echo 'main branch'
