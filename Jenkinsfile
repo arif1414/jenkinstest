@@ -11,9 +11,12 @@ pipeline {
             }
         }
         stage('Master Branch Tasks') {
+            //when {
+            //        environment(name: "GIT_BRANCH", value: "origin/main")
+            //    }
             when {
-                    environment(name: "GIT_BRANCH", value: "origin/main")
-                }
+                branch 'origin/main'
+            }
             steps {
               sh '''#!/bin/bash -l
               echo 'main branch'
